@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/screen.css" media="screen, projection">
+	<title>Chat with {Partner Name}</title>
+
+	<script>
+		fakeMessage = function() {
+			var msg = document.querySelector('.outgoing');
+			var msgHtml = msg.innerHTML;
+			var newMsg = document.querySelector('.conversation').appendChild(msg.cloneNode());
+			newMsg.innerHTML = msgHtml;
+			
+			var body = document.querySelector('body');
+			body.scrollTop = body.scrollHeight;
+		}
+	</script>	
+</head>
+<body>
+	<div class="wrapper">
+		<section class="live-chat">
+			<header>
+				<h1>
+					Chat with
+					<a class="profile-link" href="viewprofile.html">
+						<img class="avatar" src="http://placeowl.com/48" width=48 height=48>
+						<span>{Partner Name}</span>
+					</a>
+				</h1>
+				
+				<form action="livechat.html">
+					<fieldset>
+						<select name="language">
+							<option>Spanish</option>
+							<option>English</option>
+						</select>
+						<input type="submit" value="Next">
+					</fieldset>
+				</form>
+			</header>
+			
+			<section class="conversation">
+				<article class="incoming message">
+					<a href="viewprofile.html"><img class="avatar" src="http://placekitten.com/48" width=48 height=48></a>
+					<div class="content">
+						<time pubdate>Three minutes ago</time>
+						<div class="text">¡Hola!</div>					
+					</div>
+				</article>
+
+				<article class="outgoing message">
+					<a href="editprofile.html"><img class="avatar" src="http://placeowl.com/48" width=48 height=48></a>
+					<div class="content">
+						<time pubdate>Three minutes ago</time>
+						<div class="text">Hello!</div>					
+					</div>
+				</article>
+
+				<article class="incoming message">
+					<a href="viewprofile.html"><img class="avatar" src="http://placekitten.com/48" width=48 height=48></a>
+					<div class="content">
+						<time pubdate>Two minutes ago</time>
+						<div class="text">¿Cómo estás?</div>
+					</div>
+				</article>
+			</section>
+			
+			<footer>
+				<ul class="links">
+					<li><a href="http://www.wordreference.com/" target=_blank>WordReference</a></li>
+				</ul>
+				
+				<form class="message-composer">
+					<fieldset>
+						<input name="message">
+						<input type="submit" value="Send" onclick="fakeMessage(); return false">
+					</fieldset>
+				</form>			
+			</footer>
+		</section>
+	</div>
+</body>
+</html>
